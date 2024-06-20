@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U Matters | Hope</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon.png"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body style="background: linear-gradient(to left, rgb(99, 213, 211),rgb(190, 78, 78));">
+    <!--  -->
+    <nav class="navbar">
+        <img src="logo.svg" alt="logo">
+        <div class="right-nav">
+        <label class="switch">
+          <input type="checkbox"   id="switch" checked>
+          <span class="slider round"></span>
+        </label>
+        <button id="logout">Logout</button>
+      </div>
+      </nav>
+  
+      <!-- loading Section -->
+      <div class="loading-section">
+          <div class="loader"></div>
+          <p class="text-loader">Take a deep breath</p>
+        </div>
+        <div class="main-container">
+            <div class="webpage-container">
+                <div class="webpages">
+                  <ul class="webpage-links">
+                    <a class='web-link active' href='home.html'>
+                      <i class="fas fa-home nav-icon"></i>
+                      <span class="nav-text">Home</span>
+                    </a>
+          
+                    <a class='web-link' href='music.html'>
+                      <i class="fas fa-music nav-icon"></i>
+                      <span class="nav-text">Music</span>
+                    </a>
+          
+                    <a class='web-link' href='scene.html'>
+                      <i class="fas fa-mountain nav-icon"></i>
+                      <span class="nav-text">Scene</span>
+                    </a>
+          
+                    <a class='web-link' href='relax.html'>
+                      <i class="fas fa-heartbeat nav-icon"></i>
+                      <span class="nav-text">Relax & Breathe</span>
+                    </a>
+          
+                    <a class='web-link' href='hope.html'>
+                      <i class="fas fa-comments nav-icon"></i>
+                      <span class="nav-text">Talk To Hope</span>
+                    </a>
+                  </ul>
+                </div>
+               </div>
+            <div class="hope-container">
+
+                <header class="header-container">
+                    <div class="geminiHead">
+                        <h3>Hope For Best</h3>
+                        <img src="hope-head.jpg" alt="">
+                    </div>
+                </header>
+                <div id="display-container">
+                    <div class="div-content">
+                       <p>“A good teacher can inspire hope, ignite the imagination, and instill a love of learning.”</p>
+                    </div>
+                    <div class="div-content">
+                        <p>"We must accept finite disappointment, but never lose infinite hope.” </p>
+                    </div>
+                    <div class="div-content">
+                      <p>“Hope is the only bee that makes honey without flowers.”</p>
+                    </div>
+                    <div class="div-content">
+                        <p>“Hope is being able to see that there is light despite all of the darkness.” </p>
+                    </div>
+                    </div>
+                <div class="chatarea-main">
+                    <div class="chatarea-outer"></div>
+                  </div>
+
+                  <footer class="footer-container">
+                  <div class="input-box">
+                    <input type="text" name="" class="searchBox" id="text" placeholder="Enter a message here  !!!">
+                        <button class="btn">
+                            <span class="material-symbols-outlined">
+                            send
+                            </span></button>
+                    </div>
+
+                <button id="mic"><i class="fas fa-microphone"></i></button>
+            </footer>
+              </div>
+        </div>
+        <script type="importmap">
+            {
+              "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+              }
+            }
+          </script>
+    
+    
+          <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+            let API_KEY = "AIzaSyDl5no-vXM0k4R0yXpzIqMFMZOo8GLbQS8";
+    
+            const genAI = new GoogleGenerativeAI(API_KEY);
+            let btn = document.querySelector(".btn");
+            let msgContainer = document.getElementById("display-container");
+            // let chatBox = document.getElementById("chat-box");
+    
+            async function runCode(){
+                msgContainer.style.display="none";
+                const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+                let userInput = document.querySelector(".searchBox").value;
+                console.log(userInput);
+                const prompt = userInput;
+    
+                addMessage(prompt, "user-message", "User", "profile.jpeg");
+    
+            try {
+              const result = await model.generateContent(prompt);
+              const response = result.response;
+              let text = await response.text();
+              let x=marked.parse(text);
+              console.log(x);
+    
+          
+    
+              addMessage(
+                x,
+                "ai-message",
+                "Gemini",
+                "hope-logo.png"
+              );
+              document.getElementById("text").value = "";
+            } catch (error) {
+              console.error("Error generating content:", error);
+              addMessage(
+                "Error generating content. Please try again.",
+                "ai-message",
+                "Gemini",
+                "hope-logo.png"
+              );
+            }
+          }
+    
+            function addMessage(text, className, sender, imgSrc) {
+            const chatBox = document.querySelector(".chatarea-outer");
+            const message = document.createElement("div");
+            message.className = "message " + className;
+    
+            const img = document.createElement("img");
+            img.src = imgSrc;
+            img.alt = sender;
+            img.className = "chat-img";
+    
+            const textNode = document.createElement("span");
+            textNode.innerHTML = text;
+    
+            message.appendChild(img);
+            message.appendChild(textNode);
+            chatBox.appendChild(message);
+            chatBox.scrollTop = chatBox.scrollHeight;
+          }
+    
+            btn.addEventListener("click", runCode);
+             document
+            .getElementById("text")
+            .addEventListener("keypress", function (event) {
+              if (event.key === "Enter") {
+                runCode();
+              }
+            });
+            </script>
+        <script src="hope.js"></script>
+</body>
+</html>

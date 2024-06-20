@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U Matters | Breath</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon.png"
+    />
+  <style>
+    .breath-container{
+        width: 100%;
+        /* margin-left: 10%; */
+        height: 100vh;
+        /* margin-top: 10vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+       background: linear-gradient(to right, grey,rgb(49, 152, 149),brown);
+    }
+    .breath-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-top: 17%; */
+        z-index: 1;
+        width: 60%;
+        margin-top: 5%;
+        height: 50%;
+        box-shadow: 0 4px 10px  black;
+        border-radius: 20px;
+        background: linear-gradient(to left, rgb(64, 96, 164), rgb(230, 230, 108));
+        /* width: 100%; */
+    }
+    .circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #189740;
+  margin: 20px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 4s ease-in-out;
+  position: absolute;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.start-breath {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: rgb(129, 27, 27);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  z-index: 2;
+}
+.deep-head{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.exit-relax{
+margin-right: 1.5rem;
+  font-size: 2.5rem;
+  color: white;
+  transition: all 0.5s ease;
+}
+.exit-relax:hover{
+    transform: rotate(180deg);
+}
+#breath-head{
+    margin-left: 33rem;
+    padding: 10px 20px;
+    font-size: 4rem;
+}
+  </style>
+</head>
+<body>
+    <div class="loading-section">
+          <div class="loader"></div>
+          <p class="text-loader">Take a deep breath</p>
+        </div>
+
+    <div class="breath-container" id="breath-container">
+        <div class="deep-head">
+        <h1 id="breath-head">Deep Breath</h1>
+        <a href="relax.html"><i class="fa-solid fa-xmark exit-relax"></i></a>
+    </div>
+        <div class="breath-content" id="breath-content">
+              <div class="circle"></div>
+              <p id="breath-text"><i class="fa-solid fa-play start-breath"></i></p>
+            </div>
+        </div>
+    </div>
+
+
+
+        <script>
+            window.addEventListener("load", function() {
+            setTimeout(function() {
+            document.querySelector('.loading-section').classList.add('loaded');
+          }, 2000);
+  });
+
+//   breath
+let breathContainer = document.getElementById("breath-container");
+let breathContent = document.getElementById("breath-content");
+let circle = document.querySelector(".circle");
+let startBtn = document.querySelector(".start-breath");
+let pointerContainer = document.querySelector(".pointer-container");
+let pointer = document.querySelector(".pointer");
+let gradientCircle = document.querySelector(".gradient-circle");
+const text = document.getElementById("breath-text");
+
+const totalTime = 7500;
+const breatheTime = (totalTime / 5) * 2;
+const holdTime = totalTime / 5;
+
+function breathAnimation() {
+  text.innerText = "Breathe In!";
+circle.style.transform = 'scale(1.2)';
+  clear = setTimeout(() => {
+    text.innerText = "Hold";
+    circle.style.transform = 'scale(1)';
+    
+    clearone = setTimeout(() => {
+      text.innerText = "Breathe Out!";
+      circle.style.transform = 'scale(1)';
+   
+    }, holdTime);
+  }, breatheTime);
+
+  setInterval(breathAnimation, totalTime);
+}
+
+startBtn.addEventListener("click", () => {
+  breathAnimation();
+  startBtn.style.opacity = "0";
+});
+
+        </script>
+</body>
+</html>

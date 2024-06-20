@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U Matter | Home</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="music-body">
+    <nav class="navbar">
+        <img src="logo.svg" alt="logo">
+        <div class="right-nav">
+        <label class="switch">
+          <input type="checkbox"   id="switch" checked>
+          <span class="slider round"></span>
+        </label>
+        <button id="logout">Logout</button>
+      </div>
+      </nav>
+  
+      <!-- loading Section -->
+      <div class="loading-section">
+          <div class="loader"></div>
+          <p class="text-loader">Take a deep breath</p>
+        </div>
+
+        <div class="main-container">
+            <div class="webpage-container">
+                <div class="webpages">
+                  <ul class="webpage-links">
+                    <a class='web-link active' href='home.html'>
+                      <i class="fas fa-home nav-icon"></i>
+                      <span class="nav-text">Home</span>
+                    </a>
+          
+                    <a class='web-link' href='music.html'>
+                      <i class="fas fa-music nav-icon"></i>
+                      <span class="nav-text">Music</span>
+                    </a>
+          
+                    <a class='web-link' href='scene.html'>
+                      <i class="fas fa-mountain nav-icon"></i>
+                      <span class="nav-text">Scene</span>
+                    </a>
+          
+                    <a class='web-link' href='relax.html'>
+                      <i class="fas fa-heartbeat nav-icon"></i>
+                      <span class="nav-text">Relax & Breathe</span>
+                    </a>
+          
+                    <a class='web-link' href='hope.html'>
+                      <i class="fas fa-comments nav-icon"></i>
+                      <span class="nav-text">Talk To Hope</span>
+                    </a>
+                  </ul>
+                </div>
+               </div>
+            <div class="music-container">
+                <div class="main-header">
+                    <h1 class="main-titles music-title-page">Music</h1>
+                  </div> 
+                  
+                  <div class="select-box">
+                    <div class="options-container category-container">
+                      <div class="option music-category" data-name="all">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="all"
+                          name="category"
+                          data-name="all"
+                        />
+                        <label for="all">All</label>
+                      </div>
+            
+                      <div class="option music-category" data-name="nature-melodies">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="nature-melodies"
+                          name="category"
+                          data-name="nature-melodies"
+                        />
+                        <label for="nature-melodies">Nature Melodies</label>
+                      </div>
+            
+                      <div class="option music-category" data-name="nature-instument">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="nature-instument"
+                          name="category"
+                          data-name="nature-instument"
+                        />
+            
+                        <label for="nature-instument">Nature and Instrument</label>
+                      </div>
+            
+                      <div class="option music-category" data-name="classical">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="classical"
+                          name="category"
+                          data-name="classical"
+                        />
+                        <label for="classical">Classical Music</label>
+                      </div>
+            
+                      <div class="option music-category" data-name="instrumental">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="instrumental"
+                          name="category"
+                          data-name="instrumental"
+                        />
+                        <label for="instrumental">Instrumental</label>
+                      </div>
+            
+                      <div class="option music-category" data-name="lofi">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="lofi"
+                          name="category"
+                          data-name="lofi"
+                        />
+                        <label for="lofi">Lofi</label>
+                      </div>
+            
+                      <div class="option music-category" data-name="motivating">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="motivating"
+                          name="category"
+                          data-name="motivating"
+                        />
+                        <label for="motivating">Motivating</label>
+                      </div>
+            
+                      <div class="option music-category" data-name="ambient">
+                        <input
+                          type="radio"
+                          class="radio music-category"
+                          id="ambient"
+                          name="category"
+                          data-name="ambient"
+                        />
+                        <label for="ambient">Ambient</label>
+                      </div>
+                    </div>
+            
+                    <div class="selected">All</div>
+                  </div>
+
+
+                  <div class="music-card-container" id="music-container">
+                    <div class="music-box">
+                      <audio class="song">
+                        <source src="./music/nature-1.mp3" />
+                      </audio>
+            
+                      <!-- instrumental, nature instrument and motivating-->
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-instument"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-1.mp3"
+                        >
+                          <img
+                            src="healing water.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title"><span>Healing Water</span></div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="instrumental"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/instrumental-1.mp3"
+                        >
+                          <img
+                            src="kiss the sky.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Kiss the Sky</span><br />
+                          <span class="artist">Aakash Gandhi</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="motivating"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/motivating-1.mp3"
+                        >
+                          <img
+                            src="they say i can't.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>They Said I Can't</span><br />
+                          <span class="artist">David Fesliyan</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-instument"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-2.mp3"
+                        >
+                          <img
+                            src="a melodious voice.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title"><span>A Melodious Voice</span></div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="motivating"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/motivating-2.mp3"
+                        >
+                          <img src="rise up.jpg" alt="" />
+                        </div>
+                        <div class="music-title">
+                          <span>Rise Up</span><br />
+                          <span class="artist">Steve Oxen</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="instrumental"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/instrumental-2.mp3"
+                        >
+                          <img
+                            src="wistful harp.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Wistful Harp</span><br />
+                          <span class="artist">Andrew Huang</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="instrumental"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/instrumental-3.mp3"
+                        >
+                          <img
+                            src="grief and emptiness.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Grief and Emptiness</span><br />
+                          <span class="artist">Steve Oxen</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="motivating"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/motivating-3.mp3"
+                        >
+                          <img
+                            src="tears of joy.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Tears of Joy</span><br />
+                          <span class="artist">David Fesliyan</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="instrumental"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/instrumental-4.mp3"
+                        >
+                          <img
+                            src="falling snow.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Falling Snow</span><br />
+                          <span class="artist">Aakash Gandhi</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="motivating"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/motivating-4.mp3"
+                        >
+                          <img
+                            src="journey to the promise.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Journey to the Promise</span><br />
+                          <span class="artist">David Fesliyan</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="instrumental"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/instrumental-5.mp3"
+                        >
+                          <img
+                            src="lifting dreams.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Lifting Dreams</span><br />
+                          <span class="artist">Aakash Gandhi</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-melodies"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-2.mp3"
+                        >
+                          <img
+                            src="forest.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title"><span>Forest Sounds </span><br /></div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="instrumental"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/instrumental-6.mp3"
+                        >
+                          <img
+                            src="heavenly.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Heavenly</span><br />
+                          <span class="artist">Aakash Gandhi</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="motivating"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/motivating-5.mp3"
+                        >
+                          <img
+                            src="inspired thinking.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Inspired Thinking</span><br />
+                          <span class="artist">Steve Oxen</span>
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-melodies"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-4.mp3"
+                        >
+                          <img
+                            src="trees.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Underneath the Tree</span><br />
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-melodies"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-5.mp3"
+                        >
+                          <img
+                            src="bioluminescent-waves.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Bioluminescent Waves</span><br />
+                        </div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="instrumental"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/instrumental-7.mp3"
+                        >
+                          <img
+                            src="simple sonata.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Simple Sonata</span><br />
+                          <span class="artist">Sir Cubworth</span>
+                        </div>
+                      </div>
+            
+                      <!-- classical -->
+                      <div class="music-content music-mobile-content" data-name="classical">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/classical-1.mp3"
+                        >
+                          <img
+                            src="nocturne op9 no2.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Nocturne Op.9 No.2</span><br />
+                          <span class="artist">Chopin</span>
+                        </div>
+                      </div>
+            
+                      <div class="music-content music-mobile-content" data-name="classical">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/classical-2.mp3"
+                        >
+                          <img
+                            src="pachabelly.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Pachabelly</span><br />
+                          <span class="artist">Huma Huma</span>
+                        </div>
+                      </div>
+                      <!--ambient-->
+                      <div class="music-content music-mobile-content" data-name="ambient">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/ambient-1.mp3"
+                        >
+                          <img
+                            src="all shall end.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>All Shall End</span><br />
+                          <span class="artist">David Fesliyan</span>
+                        </div>
+                      </div>
+            
+                      <div class="music-content music-mobile-content" data-name="ambient">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/ambient-2.mp3"
+                        >
+                          <img src="serenity.jpg" alt="" />
+                        </div>
+                        <div class="music-title">
+                          <span>Serenity</span><br />
+                          <span class="artist">David Renda</span>
+                        </div>
+                      </div>
+            
+                      <div class="music-content music-mobile-content" data-name="ambient">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/ambient-3.mp3"
+                        >
+                          <img src="cathedral.jpg" alt="" />
+                        </div>
+                        <div class="music-title">
+                          <span>Cathedral Ambience</span><br />
+                          <span class="artist">David Renda</span>
+                        </div>
+                      </div>
+            
+                      <!-- lofi-->
+                      <div class="music-content music-mobile-content" data-name="lofi">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/lofi-1.mp3"
+                        >
+                          <img src="done with work.jpg" alt="" />
+                        </div>
+                        <div class="music-title">
+                          <span>Done With Work</span><br />
+                          <span class="artist">David Renda</span>
+                        </div>
+                      </div>
+            
+                      <div class="music-content music-mobile-content" data-name="lofi">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/lofi-2.mp3"
+                        >
+                          <img src="vibe.jpg" alt="" />
+                        </div>
+                        <div class="music-title">
+                          <span>Vibes</span><br />
+                          <span class="artist">David Renda</span>
+                        </div>
+                      </div>
+            
+                      <div class="music-content music-mobile-content" data-name="lofi">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/lofi-3.mp3"
+                        >
+                          <img src="looking up.jpg" alt="" />
+                        </div>
+                        <div class="music-title">
+                          <span>Looking Up</span><br />
+                          <span class="artist">David Renda</span>
+                        </div>
+                      </div>
+            
+                      <div class="music-content music-mobile-content" data-name="lofi">
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/lofi-2.mp3"
+                        >
+                          <img
+                            src="mellow thoughts.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title">
+                          <span>Mellow Thoughts</span><br />
+                          <span class="artist">David Renda</span>
+                        </div>
+                      </div>
+            
+                      <!--nature instrument-->
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-instument"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-instrument/Piano in the Rain.mp3"
+                        >
+                          <img
+                            src="piano in the rain.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title"><span>Piano in the Rain</span></div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-instument"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-8.mp3"
+                        >
+                          <img
+                            src="peace and happy.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title"><span>Peace and Happy</span></div>
+                      </div>
+            
+                      <div
+                        class="music-content music-mobile-content"
+                        data-name="nature-instument"
+                      >
+                        <div
+                          class="music-img"
+                          id="play"
+                          data-sound="./music/nature-9.mp3"
+                        >
+                          <img
+                            src="sad winds.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="music-title"><span>Sad Winds</span></div>
+                      </div>
+                    </div>
+            
+                    <div class="music-info">
+                      <div class="progress-container" id="progress-container">
+                        <div class="progress" id="progress"></div>
+                      </div>
+                    </div>
+                    <div class="navigation">
+                        <div class="navigation-music">
+                          <button class="stop-button">
+                            <i class="fas fa-stop pause"></i>
+                          </button>
+                          <div class="volume-container">
+                            <p id="volume_show">80</p>
+                            <i
+                              class="fa fa-volume-up"
+                              aria-hidden="true"
+                              id="volume_icon"
+                            ></i>
+                            <input type="range" min="0" max="100" value="80" id="volume" />
+                          </div>
+              
+                          <button class="replayBtn"><i class="fas fa-redo-alt"></i></button>
+                        </div>
+                      </div>
+                 </div>
+           </div>
+        </div>
+        <script src="music.js"></script>
+</body>
+</html>
